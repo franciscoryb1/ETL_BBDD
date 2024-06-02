@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="(localdb)_server1.BBDD"
+  DTS:DTSID="{B804EA8D-312C-47B2-984B-12ED6C57E8C0}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=(localdb)\server1;Initial Catalog=BBDD;Integrated Security=True;Application Name=SSIS-ETL_BBDD-{B804EA8D-312C-47B2-984B-12ED6C57E8C0}(localdb)\server1.BBDD;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
