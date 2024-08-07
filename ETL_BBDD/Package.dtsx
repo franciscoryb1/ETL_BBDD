@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="234"
-  DTS:VersionGUID="{DB332400-664C-4291-9D23-6B0333D20AF7}">
+  DTS:VersionBuild="259"
+  DTS:VersionGUID="{0A25DD34-D60D-4AD7-9BCA-FC57619237E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -468,7 +468,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9mwlaI8jaU2vNMFZj3eO1QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABt8VGq+x6DXCkcZtfi/t49GLvUaPZ/dj13qT/UgnAGigAAAAAOgAAAAAIAACAAAABZxjaA+YAbEpemdud4UOeJePH/Y1Dw3/bg7dMOryzrwxAAAAB0+Tgc9cmL/w7/7W3viku3QAAAALUocMR1PFHAn3xd5gxpc3chr7nd+dAyke50klvBewc5i6L4jOQ4oQ9advgOok5tifuxazKCtU+GtqiN1EBPr2M</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9mwlaI8jaU2vNMFZj3eO1QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABkvLdP0afNXZBDkYmLYZXF9Bp+G1+gYbOD42koez5VggAAAAAOgAAAAAIAACAAAABTQGOj6a5txVXSkwqT+IV8abTLOLKehqHFHB2rGjTEFRAAAABZJJrBAeFybhxdzXW5kHGQQAAAAPI1yrxRGXS4D6/8tLfHU5l/3EEPIyQI7tQBupTVux6ujx3rY7bsMuRgjbYoR5qm/XsPoAvVr33yZv+Xkzg0F8E</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2532,7 +2532,7 @@
                       description="Nombre de la tabla de la base de datos de destino."
                       expressionType="Notify"
                       name="TableOrViewName"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Productos"</property>
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimProducto"</property>
                     <property
                       dataType="System.Int32"
                       description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
@@ -2555,8 +2555,8 @@
                   <connections>
                     <connection
                       refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Connections[IDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.DWH]"
-                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.DWH]"
+                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
                       description="Administrador de conexiones administrado"
                       name="IDbConnection" />
                   </connections>
@@ -2589,6 +2589,12 @@
                           externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[envase]"
                           lineageId="Package\Carga Dimensiones DWH\DimensionProductos\Producto.Outputs[Salida de origen de ADO NET].Columns[envase]" />
                         <inputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r4"
+                          cachedName="cantidad_homogeneizada"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_homogeneizada]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionProductos\cm3 a Litros.Outputs[Derived Column Output].Columns[cantidad_homogeneizada]" />
+                        <inputColumn
                           refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].Columns[cantidad_unidad]"
                           cachedDataType="wstr"
                           cachedLength="6"
@@ -2609,19 +2615,13 @@
                           cachedName="categoria"
                           externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[categoria]"
                           lineageId="Package\Carga Dimensiones DWH\DimensionProductos\Categoria.Outputs[Derived Column Output].Columns[categoria]" />
-                        <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].Columns[cantidad_homogeneizada]"
-                          cachedDataType="r4"
-                          cachedName="cantidad_homogeneizada"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_homogeneoizada]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionProductos\cm3 a Litros.Outputs[Derived Column Output].Columns[cantidad_homogeneizada]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
                           refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
                           dataType="wstr"
-                          length="50"
+                          length="100"
                           name="id_producto" />
                         <externalMetadataColumn
                           refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[descripcion]"
@@ -2634,9 +2634,9 @@
                           length="100"
                           name="envase" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_homogeneoizada]"
+                          refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_homogeneizada]"
                           dataType="r8"
-                          name="cantidad_homogeneoizada" />
+                          name="cantidad_homogeneizada" />
                         <externalMetadataColumn
                           refId="Package\Carga Dimensiones DWH\DimensionProductos\Productos.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_unidad]"
                           dataType="wstr"
@@ -9728,7 +9728,2443 @@ ORDER BY PRODUCT_ID</property>
             </pipeline>
           </DTS:ObjectData>
         </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Fact\Productos Litros"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{FFF9EB83-93BF-4A2B-A0AF-151807E72C4B}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Productos Litros"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Fact\Productos Litros\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column.Inputs[Derived Column Input].Columns[id_producto]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="id_producto"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Fact\Productos Litros\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output].Columns[ID_PRODUCTO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)id_producto</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Fact\Productos Litros\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column 1.Inputs[Derived Column Input].Columns[id_producto]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="id_producto"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Fact\Productos Litros\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output].Columns[ID_PRODUCTO]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_I4)#{Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_I4)id_producto</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Fact\Productos Litros\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Destino de ADO NET"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+                  description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+                  name="Destino de ADO NET"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de destino."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."fact_2"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fact\Productos Litros\Destino de ADO NET.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="Entrada de destino de ADO NET">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ID_VENTA]"
+                          cachedDataType="i4"
+                          cachedName="ID_VENTA"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_VENTA]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_VENTA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[ID_FACTURA]"
+                          cachedDataType="i4"
+                          cachedName="ID_FACTURA"
+                          cachedSortKeyPosition="1"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_FACTURA]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_FACTURA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_producto]"
+                          cachedDataType="i4"
+                          cachedName="id_producto"
+                          cachedSortKeyPosition="2"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_producto]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FECHA]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[FECHA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_cliente]"
+                          cachedDataType="i4"
+                          cachedName="id_cliente"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_cliente]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_cliente]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_empleado]"
+                          cachedDataType="i4"
+                          cachedName="id_empleado"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_empleado]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_empleado]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="REGION"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[REGION]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[REGION]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r8"
+                          cachedName="cantidad_homogeneizada"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_litros]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad]"
+                          cachedDataType="r8"
+                          cachedName="cantidad"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad]"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_VENTA]"
+                          dataType="i4"
+                          name="ID_VENTA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[ID_FACTURA]"
+                          dataType="i4"
+                          name="ID_FACTURA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          name="REGION" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_cliente]"
+                          dataType="i4"
+                          name="id_cliente" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_empleado]"
+                          dataType="i4"
+                          name="id_empleado" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
+                          dataType="i4"
+                          name="id_producto" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad_litros]"
+                          dataType="r8"
+                          name="cantidad_litros" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[cantidad]"
+                          dataType="r8"
+                          name="cantidad" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Salida de error de destino de ADO NET"
+                      synchronousInputId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\DetalleFactura Stg"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+                  name="DetalleFactura Stg"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de origen."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."Detalle_facturas"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especificar el modo de recuperar información de columnas externas"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fact\Productos Litros\DetalleFactura Stg.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET]"
+                      name="Salida de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_factura]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_factura]"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_factura]"
+                          name="id_factura"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad]"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad]"
+                          name="cantidad"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_factura]"
+                          dataType="i4"
+                          name="id_factura" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          dataType="wstr"
+                          length="50"
+                          name="id_producto" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad]"
+                          dataType="r8"
+                          name="cantidad" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_factura]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_factura]"
+                          name="id_factura" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad]"
+                          name="cantidad" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\DimProductos Stg"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+                  name="DimProductos Stg"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de origen."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DimProducto"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especificar el modo de recuperar información de columnas externas"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fact\Productos Litros\DimProductos Stg.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET]"
+                      name="Salida de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[descripcion]"
+                          name="descripcion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[envase]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[envase]"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[envase]"
+                          name="envase"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_homogeneizada]"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_unidad]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_unidad]"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_unidad]"
+                          name="cantidad_unidad"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[presentacion]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[presentacion]"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[presentacion]"
+                          name="presentacion"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[categoria]"
+                          name="categoria"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[precio]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[precio]"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[precio]"
+                          name="precio"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          dataType="wstr"
+                          length="100"
+                          name="id_producto" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[descripcion]"
+                          dataType="wstr"
+                          length="100"
+                          name="descripcion" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[envase]"
+                          dataType="wstr"
+                          length="100"
+                          name="envase" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          name="cantidad_homogeneizada" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[cantidad_unidad]"
+                          dataType="wstr"
+                          length="50"
+                          name="cantidad_unidad" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[presentacion]"
+                          dataType="wstr"
+                          length="50"
+                          name="presentacion" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[categoria]"
+                          dataType="wstr"
+                          length="100"
+                          name="categoria" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[precio]"
+                          dataType="r8"
+                          name="precio" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[descripcion]"
+                          name="descripcion" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[envase]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[envase]"
+                          name="envase" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_unidad]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[cantidad_unidad]"
+                          name="cantidad_unidad" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[presentacion]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[presentacion]"
+                          name="presentacion" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[categoria]"
+                          name="categoria" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[precio]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[precio]"
+                          name="precio" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\fact_1 Stg"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+                  description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+                  name="fact_1 Stg"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="Nombre de la tabla de la base de datos de origen."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."fact_1"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Especificar el modo de recuperar información de columnas externas"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Fact\Productos Litros\fact_1 Stg.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
+                      description="Administrador de conexiones administrado"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET]"
+                      name="Salida de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_VENTA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_VENTA]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_VENTA]"
+                          name="ID_VENTA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_FACTURA]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_FACTURA]"
+                          name="ID_FACTURA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[FECHA]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[FECHA]"
+                          name="FECHA"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[REGION]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[REGION]"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[REGION]"
+                          name="REGION"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_cliente]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_cliente]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_cliente]"
+                          name="id_cliente"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_empleado]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_empleado]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_empleado]"
+                          name="id_empleado"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversión"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_VENTA]"
+                          dataType="i4"
+                          name="ID_VENTA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[ID_FACTURA]"
+                          dataType="i4"
+                          name="ID_FACTURA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[FECHA]"
+                          dataType="dbTimeStamp"
+                          name="FECHA" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          name="REGION" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_cliente]"
+                          dataType="i4"
+                          name="id_cliente" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_empleado]"
+                          dataType="i4"
+                          name="id_empleado" />
+                        <externalMetadataColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_producto]"
+                          dataType="i4"
+                          name="id_producto" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET]"
+                      isErrorOut="true"
+                      name="Salida de error de origen de ADO NET">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ID_VENTA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ID_VENTA]"
+                          name="ID_VENTA" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ID_FACTURA]"
+                          name="ID_FACTURA" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[FECHA]"
+                          name="FECHA" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[REGION]"
+                          name="REGION" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_cliente]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_cliente]"
+                          name="id_cliente" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_empleado]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_empleado]"
+                          name="id_empleado" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[id_producto]"
+                          name="id_producto" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Merge Join"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merge Join"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">1</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_producto]"
+                          cachedDataType="i4"
+                          cachedName="id_producto"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_producto]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]"
+                          cachedDataType="i4"
+                          cachedName="ID_VENTA"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_VENTA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[ID_FACTURA]"
+                          cachedDataType="i4"
+                          cachedName="ID_FACTURA"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_FACTURA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[FECHA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_cliente]"
+                          cachedDataType="i4"
+                          cachedName="id_cliente"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_cliente]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_empleado]"
+                          cachedDataType="i4"
+                          cachedName="id_empleado"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_empleado]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="REGION"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[REGION]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Right Input].Columns[PRODUCT_ID]"
+                          cachedDataType="i4"
+                          cachedName="PRODUCT_ID"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[PRODUCT_ID]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Right Input].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r8"
+                          cachedName="cantidad_homogeneizada"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[cantidad_homogeneizada]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                          name="ID_VENTA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[ID_VENTA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_FACTURA]"
+                          name="ID_FACTURA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[ID_FACTURA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_producto]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_producto]"
+                          name="id_producto"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[FECHA]"
+                          name="FECHA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[FECHA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_cliente]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_cliente]"
+                          name="id_cliente">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_cliente]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_empleado]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_empleado]"
+                          name="id_empleado">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[id_empleado]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[REGION]"
+                          name="REGION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input].Columns[REGION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Right Input].Columns[cantidad_homogeneizada]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Merge Join 1"
+                  componentClassID="Microsoft.MergeJoin"
+                  contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+                  name="Merge Join 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of join to perform."
+                      name="JoinType"
+                      typeConverter="JoinType">2</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the number of columns in the ordering key."
+                      name="NumKeyColumns">2</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the null values are treated as equal values."
+                      name="TreatNullsAsEqual">true</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Indicates the requested maximum buffers per input before blocking."
+                      name="MaxBuffersPerInput">5</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Left Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[ID_FACTURA]"
+                          cachedDataType="i4"
+                          cachedName="ID_FACTURA"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_FACTURA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_producto]"
+                          cachedDataType="i4"
+                          cachedName="id_producto"
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_producto]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[ID_VENTA]"
+                          cachedDataType="i4"
+                          cachedName="ID_VENTA"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_VENTA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[FECHA]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_cliente]"
+                          cachedDataType="i4"
+                          cachedName="id_cliente"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_cliente]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_empleado]"
+                          cachedDataType="i4"
+                          cachedName="id_empleado"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_empleado]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="REGION"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[REGION]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r8"
+                          cachedName="cantidad_homogeneizada"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[cantidad_homogeneizada]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                    <input
+                      refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input]"
+                      hasSideEffects="true"
+                      name="Merge Join Right Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input].Columns[id_factura]"
+                          cachedDataType="i4"
+                          cachedName="id_factura"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[id_factura]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input].Columns[ID_PRODUCTO]"
+                          cachedDataType="i4"
+                          cachedName="ID_PRODUCTO"
+                          cachedSortKeyPosition="2"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[ID_PRODUCTO]" />
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input].Columns[cantidad]"
+                          cachedDataType="r8"
+                          cachedName="cantidad"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[cantidad]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output]"
+                      isSorted="true"
+                      name="Merge Join Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_VENTA]"
+                          name="ID_VENTA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[ID_VENTA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[ID_FACTURA]"
+                          name="ID_FACTURA"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[ID_FACTURA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_producto]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_producto]"
+                          name="id_producto"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[FECHA]"
+                          name="FECHA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[FECHA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_cliente]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_cliente]"
+                          name="id_cliente">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_cliente]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_empleado]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[id_empleado]"
+                          name="id_empleado">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[id_empleado]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[REGION]"
+                          name="REGION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[REGION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input].Columns[cantidad_homogeneizada]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output].Columns[cantidad]"
+                          name="cantidad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="The input column associated with this output column"
+                              name="InputColumnID">#{Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input].Columns[cantidad]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Sort"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[ID_VENTA]"
+                          cachedDataType="i4"
+                          cachedName="ID_VENTA"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_VENTA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[ID_FACTURA]"
+                          cachedDataType="i4"
+                          cachedName="ID_FACTURA"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_FACTURA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[id_producto]"
+                          cachedDataType="i4"
+                          cachedName="id_producto"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[FECHA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[id_cliente]"
+                          cachedDataType="i4"
+                          cachedName="id_cliente"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_cliente]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[id_empleado]"
+                          cachedDataType="i4"
+                          cachedName="id_empleado"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_empleado]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input].Columns[REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="REGION"
+                          lineageId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[REGION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_VENTA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_VENTA]"
+                          name="ID_VENTA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_VENTA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[ID_FACTURA]"
+                          name="ID_FACTURA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[ID_FACTURA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_producto]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_producto]"
+                          name="id_producto"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[FECHA]"
+                          name="FECHA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[FECHA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_cliente]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_cliente]"
+                          name="id_cliente">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_cliente]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_empleado]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[id_empleado]"
+                          name="id_empleado">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[id_empleado]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output].Columns[REGION]"
+                          name="REGION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET].Columns[REGION]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Sort 1"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 1"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[id_producto]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="id_producto"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[descripcion]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="descripcion"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[descripcion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[envase]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="envase"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[envase]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r8"
+                          cachedName="cantidad_homogeneizada"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_homogeneizada]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[cantidad_unidad]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="cantidad_unidad"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_unidad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[presentacion]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="presentacion"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[presentacion]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[categoria]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="categoria"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[categoria]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[precio]"
+                          cachedDataType="r8"
+                          cachedName="precio"
+                          lineageId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[precio]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input].Columns[ID_PRODUCTO]"
+                          cachedDataType="i4"
+                          cachedName="ID_PRODUCTO"
+                          lineageId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output].Columns[ID_PRODUCTO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[id_producto]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[id_producto]"
+                          name="id_producto">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[descripcion]"
+                          name="descripcion">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[descripcion]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[envase]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[envase]"
+                          name="envase">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[envase]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_homogeneizada]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[cantidad_unidad]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[cantidad_unidad]"
+                          name="cantidad_unidad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad_unidad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[presentacion]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[presentacion]"
+                          name="presentacion">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[presentacion]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[categoria]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[categoria]"
+                          name="categoria">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[categoria]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[precio]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[precio]"
+                          name="precio">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET].Columns[precio]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[PRODUCT_ID]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output].Columns[PRODUCT_ID]"
+                          name="PRODUCT_ID"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output].Columns[ID_PRODUCTO]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Sort 2"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 2"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input].Columns[id_factura]"
+                          cachedDataType="i4"
+                          cachedName="id_factura"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_factura]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input].Columns[id_producto]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="id_producto"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input].Columns[cantidad]"
+                          cachedDataType="r8"
+                          cachedName="cantidad"
+                          lineageId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input].Columns[ID_PRODUCTO]"
+                          cachedDataType="i4"
+                          cachedName="ID_PRODUCTO"
+                          lineageId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output].Columns[ID_PRODUCTO]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[id_factura]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[id_factura]"
+                          name="id_factura"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_factura]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[id_producto]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[id_producto]"
+                          name="id_producto">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[cantidad]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[cantidad]"
+                          name="cantidad">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output].Columns[ID_PRODUCTO]"
+                          name="ID_PRODUCTO"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output].Columns[ID_PRODUCTO]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Fact\Productos Litros\Sort 3"
+                  componentClassID="Microsoft.Sort"
+                  contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+                  name="Sort 3"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                      name="EliminateDuplicates">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the maximum number of threads to use for sorting."
+                      expressionType="Notify"
+                      name="MaximumThreads">-1</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input]"
+                      name="Sort Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[ID_VENTA]"
+                          cachedDataType="i4"
+                          cachedName="ID_VENTA"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[ID_FACTURA]"
+                          cachedDataType="i4"
+                          cachedName="ID_FACTURA"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_FACTURA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">1</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[id_producto]"
+                          cachedDataType="i4"
+                          cachedName="id_producto"
+                          cachedSortKeyPosition="1"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_producto]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">2</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[FECHA]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="FECHA"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[FECHA]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[id_cliente]"
+                          cachedDataType="i4"
+                          cachedName="id_cliente"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_cliente]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[id_empleado]"
+                          cachedDataType="i4"
+                          cachedName="id_empleado"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_empleado]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[REGION]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="REGION"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[REGION]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input].Columns[cantidad_homogeneizada]"
+                          cachedDataType="r8"
+                          cachedName="cantidad_homogeneizada"
+                          lineageId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]">
+                          <properties>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the comparison options for character data."
+                              name="NewComparisonFlags">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the sort order of the column."
+                              name="NewSortKeyPosition">0</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output]"
+                      isSorted="true"
+                      name="Sort Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_VENTA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_VENTA]"
+                          name="ID_VENTA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_VENTA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_FACTURA]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[ID_FACTURA]"
+                          name="ID_FACTURA"
+                          sortKeyPosition="1">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[ID_FACTURA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_producto]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_producto]"
+                          name="id_producto"
+                          sortKeyPosition="2">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_producto]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[FECHA]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[FECHA]"
+                          name="FECHA">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[FECHA]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_cliente]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_cliente]"
+                          name="id_cliente">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_cliente]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_empleado]"
+                          dataType="i4"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[id_empleado]"
+                          name="id_empleado">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[id_empleado]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[REGION]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[REGION]"
+                          name="REGION">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[REGION]}</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[cantidad_homogeneizada]"
+                          dataType="r8"
+                          lineageId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output].Columns[cantidad_homogeneizada]"
+                          name="cantidad_homogeneizada">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the lineage identifier of the input column that is associated with this output column."
+                              name="SortColumnId">#{Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output].Columns[cantidad_homogeneizada]}</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Derived Column Output]"
+                  endId="Package\Fact\Productos Litros\Sort 1.Inputs[Sort Input]"
+                  name="Derived Column Output"
+                  startId="Package\Fact\Productos Litros\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Derived Column Output1]"
+                  endId="Package\Fact\Productos Litros\Sort 2.Inputs[Sort Input]"
+                  name="Derived Column Output"
+                  startId="Package\Fact\Productos Litros\Derived Column 1.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Merge Join Output]"
+                  endId="Package\Fact\Productos Litros\Sort 3.Inputs[Sort Input]"
+                  name="Merge Join Output"
+                  startId="Package\Fact\Productos Litros\Merge Join.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Merge Join Output1]"
+                  endId="Package\Fact\Productos Litros\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  name="Merge Join Output"
+                  startId="Package\Fact\Productos Litros\Merge Join 1.Outputs[Merge Join Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET]"
+                  endId="Package\Fact\Productos Litros\Sort.Inputs[Sort Input]"
+                  name="Salida de origen de ADO NET"
+                  startId="Package\Fact\Productos Litros\fact_1 Stg.Outputs[Salida de origen de ADO NET]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET1]"
+                  endId="Package\Fact\Productos Litros\Derived Column.Inputs[Derived Column Input]"
+                  name="Salida de origen de ADO NET"
+                  startId="Package\Fact\Productos Litros\DimProductos Stg.Outputs[Salida de origen de ADO NET]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET2]"
+                  endId="Package\Fact\Productos Litros\Derived Column 1.Inputs[Derived Column Input]"
+                  name="Salida de origen de ADO NET"
+                  startId="Package\Fact\Productos Litros\DetalleFactura Stg.Outputs[Salida de origen de ADO NET]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Sort Output]"
+                  endId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\Fact\Productos Litros\Sort.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Sort Output1]"
+                  endId="Package\Fact\Productos Litros\Merge Join.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\Fact\Productos Litros\Sort 1.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Sort Output2]"
+                  endId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Left Input]"
+                  name="Sort Output"
+                  startId="Package\Fact\Productos Litros\Sort 3.Outputs[Sort Output]" />
+                <path
+                  refId="Package\Fact\Productos Litros.Paths[Sort Output3]"
+                  endId="Package\Fact\Productos Litros\Merge Join 1.Inputs[Merge Join Right Input]"
+                  name="Sort Output"
+                  startId="Package\Fact\Productos Litros\Sort 2.Outputs[Sort Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
       </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Fact.PrecedenceConstraints[Restricción]"
+          DTS:CreationName=""
+          DTS:DTSID="{85584E5D-F2A0-4639-BBCA-E17AAF8E94E4}"
+          DTS:From="Package\Fact\Facturas"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción"
+          DTS:To="Package\Fact\Productos Litros" />
+      </DTS:PrecedenceConstraints>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Truncate DWH"
@@ -9761,7 +12197,7 @@ ORDER BY PRODUCT_ID</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{49E754A0-0B3E-480A-8BA3-B01A85C05CC5}"
-          SQLTask:SqlStatementSource="TRUNCATE table Customers&#xA;TRUNCATE TABLE Producto&#xA;TRUNCATE TABLE Regiones&#xA;TRUNCATE TABLE Stock&#xA;TRUNCATE TABLE Empleados&#xA;TRUNCATE TABLE Holidays&#xA;TRUNCATE TABLE Facturas&#xA;TRUNCATE TABLE Detalle_facturas&#xA;TRUNCATE TABLE Facturas_historicas&#xA;TRUNCATE TABLE Descuentos&#xA;TRUNCATE TABLE Precios&#xA;TRUNCATE TABLE fact_1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE table Customers&#xA;TRUNCATE TABLE Producto&#xA;TRUNCATE TABLE Regiones&#xA;TRUNCATE TABLE Stock&#xA;TRUNCATE TABLE Empleados&#xA;TRUNCATE TABLE Holidays&#xA;TRUNCATE TABLE Facturas&#xA;TRUNCATE TABLE Detalle_facturas&#xA;TRUNCATE TABLE Facturas_historicas&#xA;TRUNCATE TABLE Descuentos&#xA;TRUNCATE TABLE Precios&#xA;TRUNCATE TABLE fact_1&#xA;TRUNCATE TABLE fact_2&#xA;TRUNCATE TABLE DimProducto" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -10247,11 +12683,37 @@ ORDER BY PRODUCT_ID</property>
           Size="122,42"
           Id="Package\Fact\Facturas"
           TopLeft="8.11111111111097,10.2063492063492" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fact\Productos Litros"
+          TopLeft="204.272727272727,11" />
+        <EdgeLayout
+          Id="Package\Fact.PrecedenceConstraints[Restricción]"
+          TopLeft="130.111111111111,31.6031746031746">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.1616161616163,0"
+              Start="0,0"
+              End="66.6616161616163,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.6616161616163,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="389,395"
-          Size="389,438"
+          PanelSize="463,395"
+          Size="463,438"
           Id="Package\Fact"
           TopLeft="843.333333333333,55.5555555555555" />
         <NodeLayout
@@ -10783,7 +13245,7 @@ ORDER BY PRODUCT_ID</property>
     design-time-name="Package\Carga Dimensiones DWH\DimensionProductos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="143,42"
           Id="Package\Carga Dimensiones DWH\DimensionProductos\Presentacion"
@@ -10827,9 +13289,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10863,9 +13323,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10899,9 +13357,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10923,9 +13379,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10947,9 +13401,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11565,7 +14017,7 @@ ORDER BY PRODUCT_ID</property>
     design-time-name="Package\Carga Staging DB\Precios y Descuentos - MySql">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="110,42"
           Id="Package\Carga Staging DB\Precios y Descuentos - MySql\Prices"
@@ -11601,9 +14053,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11625,9 +14075,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11669,7 +14117,7 @@ ORDER BY PRODUCT_ID</property>
     design-time-name="Package\Carga Staging DB\Producto">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="140,42"
           Id="Package\Carga Staging DB\Producto\ProductoStg"
@@ -11709,9 +14157,7 @@ ORDER BY PRODUCT_ID</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -12211,6 +14657,400 @@ ORDER BY PRODUCT_ID</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fact\Facturas\fact_1 Stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fact\Productos Litros">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Fact\Productos Litros\DimProductos Stg"
+          TopLeft="197,19" />
+        <NodeLayout
+          Size="128,42"
+          Id="Package\Fact\Productos Litros\fact_1 Stg"
+          TopLeft="23,16" />
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Fact\Productos Litros\Sort"
+          TopLeft="41,91" />
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET]"
+          TopLeft="88.75,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Productos Litros\Sort 1"
+          TopLeft="271,157" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fact\Productos Litros\Derived Column"
+          TopLeft="248,92" />
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET1]"
+          TopLeft="281,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46,31"
+              Start="0,0"
+              End="46,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5"
+                    Point2="0,15.5"
+                    Point3="4,15.5" />
+                  <mssgle:LineSegment
+                    End="42,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42,15.5"
+                    Point2="46,15.5"
+                    Point3="46,19.5" />
+                  <mssgle:LineSegment
+                    End="46,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Derived Column Output]"
+          TopLeft="326,134">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Fact\Productos Litros\Merge Join"
+          TopLeft="263,259" />
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Sort Output]"
+          TopLeft="90.5,133">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.166666666667,126"
+              Start="0,0"
+              End="218.166666666667,118.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.7013372956909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.7013372956909"
+                    Point2="0,74.7013372956909"
+                    Point3="4,74.7013372956909" />
+                  <mssgle:LineSegment
+                    End="214.166666666667,74.7013372956909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.166666666667,74.7013372956909"
+                    Point2="218.166666666667,74.7013372956909"
+                    Point3="218.166666666667,78.7013372956909" />
+                  <mssgle:LineSegment
+                    End="218.166666666667,118.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Sort Output1]"
+          TopLeft="325,199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.3333333333333,60"
+              Start="0,0"
+              End="25.3333333333333,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5720653789004" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5720653789004"
+                    Point2="0,35.5720653789004"
+                    Point3="4,35.5720653789004" />
+                  <mssgle:LineSegment
+                    End="21.3333333333333,35.5720653789004" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.3333333333333,35.5720653789004"
+                    Point2="25.3333333333333,35.5720653789004"
+                    Point3="25.3333333333333,39.5720653789004" />
+                  <mssgle:LineSegment
+                    End="25.3333333333333,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Fact\Productos Litros\Destino de ADO NET"
+          TopLeft="660,359" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Fact\Productos Litros\DetalleFactura Stg"
+          TopLeft="512.888888888889,26.8888888888889" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Productos Litros\Sort 2"
+          TopLeft="917.222222222222,34.3333333333334" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Fact\Productos Litros\Sort 3"
+          TopLeft="451.888888888889,257.888888888889" />
+        <NodeLayout
+          Size="142,42"
+          Id="Package\Fact\Productos Litros\Merge Join 1"
+          TopLeft="679.777777777778,173.333333333333" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Fact\Productos Litros\Derived Column 1"
+          TopLeft="736.666666666667,31" />
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Sort Output2]"
+          TopLeft="505.888888888889,257.888888888889">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="244.888888888889,-42.5555555555555"
+              Start="0,0"
+              End="244.888888888889,-35.0555555555555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-17.2777777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-17.2777777777778"
+                    Point2="0,-21.2777777777778"
+                    Point3="4,-21.2777777777778" />
+                  <mssgle:LineSegment
+                    End="240.888888888889,-21.2777777777778" />
+                  <mssgle:CubicBezierSegment
+                    Point1="240.888888888889,-21.2777777777778"
+                    Point2="244.888888888889,-21.2777777777778"
+                    Point3="244.888888888889,-25.2777777777778" />
+                  <mssgle:LineSegment
+                    End="244.888888888889,-35.0555555555555" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Sort Output3]"
+          TopLeft="971.222222222222,76.3333333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-220.444444444445,97"
+              Start="0,0"
+              End="-220.444444444445,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="-4,48.5" />
+                  <mssgle:LineSegment
+                    End="-216.444444444445,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-216.444444444445,48.5"
+                    Point2="-220.444444444445,48.5"
+                    Point3="-220.444444444445,52.5" />
+                  <mssgle:LineSegment
+                    End="-220.444444444445,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Salida de origen de ADO NET2]"
+          TopLeft="682.888888888889,49.9444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.7777777777778,0"
+              Start="0,0"
+              End="46.2777777777778,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.2777777777778,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Derived Column Output1]"
+          TopLeft="894.666666666667,53.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.5555555555554,0"
+              Start="0,0"
+              End="15.0555555555554,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.0555555555554,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Merge Join Output]"
+          TopLeft="396,279.444444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.8888888888889,0"
+              Start="0,0"
+              End="48.3888888888889,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.3888888888889,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fact\Productos Litros.Paths[Merge Join Output1]"
+          TopLeft="773.111111111111,215.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21.6111111111111,143.666666666667"
+              Start="0,0"
+              End="-21.6111111111111,136.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4271123491179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.4271123491179"
+                    Point2="0,58.4271123491179"
+                    Point3="-4,58.4271123491179" />
+                  <mssgle:LineSegment
+                    End="-17.6111111111111,58.4271123491179" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17.6111111111111,58.4271123491179"
+                    Point2="-21.6111111111111,58.4271123491179"
+                    Point3="-21.6111111111111,62.4271123491179" />
+                  <mssgle:LineSegment
+                    End="-21.6111111111111,136.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\Productos Litros\DimProductos Stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\Productos Litros\fact_1 Stg">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fact\Productos Litros\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
