@@ -11,8 +11,8 @@
   DTS:LocaleID="11274"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="396"
-  DTS:VersionGUID="{8D4353E2-C63F-4230-AD47-88E66451E6FA}">
+  DTS:VersionBuild="407"
+  DTS:VersionGUID="{FF458D1E-DD28-4D5A-A468-52199ABB2113}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -468,7 +468,7 @@
           <DTS:Password
             DTS:Name="pwd"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9mwlaI8jaU2vNMFZj3eO1QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA5bYo0VIpPafiZaNigj0NjSDrOC2PGZ++AoIZ4fWbTKAAAAAAOgAAAAAIAACAAAAC3cmTU03HkM1DK27bxJDcqpKOzLscvmuE7nScLRfUzBRAAAABa1tVlFVwjh5W09vOm9k4iQAAAAJr4LYZurksVrjHg57jzCKW5Gb2MT+r8gHksKhdJeMFW0bV3lDEgnOaNbpRYgEnrE9Zgm066kkrbxuzkbUNAE/s</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA9mwlaI8jaU2vNMFZj3eO1QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAnRQ16N/f6bmDP1tUvdJ48Vfekt4tONhlTUJd1eKVkqgAAAAAOgAAAAAIAACAAAACkqCrQRlNcNgcb/5M66AMEqtFZKcftZAyQx4hN7eBvIxAAAACpOEsEE7VRYtv0K01PdEWaQAAAADdYFu5M0lnlaEPOUD3gk5JBTwyI7JiBpXSyHdG8sMxbqOHNLPrXXGbTBjtLAJEyfmins3Fm9lLaUWR7NRRcu7c</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1402,7 +1402,6 @@
           DTS:refId="Package\Carga Dimensiones DWH\DimensionDescuentos"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{6D1F8D05-E544-46B7-8C82-F63F7F5124CB}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -1414,11 +1413,11 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH"
+                  refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
                   description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-                  name="Descuentos DWH"
+                  name="Destino de ADO NET"
                   usesDispositions="true"
                   version="2">
                   <properties>
@@ -1449,7 +1448,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Connections[IDbConnection]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Connections[IDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[(localdb)\server1.DWH]"
                       connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.DWH]"
                       description="Administrador de conexiones administrado"
@@ -1457,62 +1456,62 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Entrada de destino de ADO NET">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].Columns[id_descuento]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_descuento]"
                           cachedDataType="i4"
                           cachedName="id_descuento"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_descuento]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[id_descuento]" />
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_descuento]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_descuento]" />
                         <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].Columns[hasta]"
-                          cachedDataType="dbDate"
-                          cachedName="hasta"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[hasta]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[hasta]" />
-                        <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].Columns[total_factura]"
-                          cachedDataType="r8"
-                          cachedName="total_factura"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_factura]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[total_factura]" />
-                        <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].Columns[porcentaje]"
-                          cachedDataType="r8"
-                          cachedName="porcentaje"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[porcentaje]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[porcentaje]" />
-                        <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].Columns[desde]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[desde]"
                           cachedDataType="dbDate"
                           cachedName="desde"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[desde]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[desde]" />
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[desde]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[desde]" />
+                        <inputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[hasta]"
+                          cachedDataType="dbDate"
+                          cachedName="hasta"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[hasta]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[hasta]" />
+                        <inputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[total_factura]"
+                          cachedDataType="r8"
+                          cachedName="total_factura"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_factura]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[total_factura]" />
+                        <inputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[porcentaje]"
+                          cachedDataType="r8"
+                          cachedName="porcentaje"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[porcentaje]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[porcentaje]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_descuento]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_descuento]"
                           dataType="i4"
                           name="id_descuento" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[desde]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[desde]"
                           dataType="dbTimeStamp"
                           name="desde" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[hasta]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[hasta]"
                           dataType="dbTimeStamp"
                           name="hasta" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_factura]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[total_factura]"
                           dataType="r8"
                           name="total_factura" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[porcentaje]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[porcentaje]"
                           dataType="r8"
                           name="porcentaje" />
                       </externalMetadataColumns>
@@ -1520,22 +1519,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Outputs[Salida de error de destino de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Salida de error de destino de ADO NET"
-                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET]">
+                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1544,11 +1543,11 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg"
+                  refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
                   description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
-                  name="DescuentosStg"
+                  name="Origen de ADO NET"
                   usesDispositions="true"
                   version="4">
                   <properties>
@@ -1583,7 +1582,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Connections[IDbConnection]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Connections[IDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[(localdb)\server1.BBDD]"
                       connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.BBDD]"
                       description="Administrador de conexiones administrado"
@@ -1591,119 +1590,119 @@
                   </connections>
                   <outputs>
                     <output
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
                       name="Salida de origen de ADO NET">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[id_descuento]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_descuento]"
                           dataType="i4"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_descuento]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[id_descuento]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_descuento]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id_descuento]"
                           name="id_descuento"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[desde]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[desde]"
                           dataType="dbDate"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[desde]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[desde]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[desde]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[desde]"
                           name="desde"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[hasta]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[hasta]"
                           dataType="dbDate"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[hasta]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[hasta]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[hasta]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[hasta]"
                           name="hasta"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[total_factura]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[total_factura]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[total_factura]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[total_factura]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[total_factura]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[total_factura]"
                           name="total_factura"
                           truncationRowDisposition="FailComponent" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[porcentaje]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[porcentaje]"
                           dataType="r8"
                           errorOrTruncationOperation="Conversión"
                           errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].Columns[porcentaje]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[porcentaje]"
                           name="porcentaje"
                           truncationRowDisposition="FailComponent" />
                       </outputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[id_descuento]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id_descuento]"
                           dataType="i4"
                           name="id_descuento" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[desde]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[desde]"
                           dataType="dbDate"
                           name="desde" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[hasta]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[hasta]"
                           dataType="dbDate"
                           name="hasta" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[total_factura]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[total_factura]"
                           dataType="r8"
                           name="total_factura" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[porcentaje]"
                           dataType="r8"
                           name="porcentaje" />
                       </externalMetadataColumns>
                     </output>
                     <output
-                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
                       isErrorOut="true"
                       name="Salida de error de origen de ADO NET">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[id_descuento]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_descuento]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[id_descuento]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id_descuento]"
                           name="id_descuento" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[desde]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[desde]"
                           dataType="dbDate"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[desde]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[desde]"
                           name="desde" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[hasta]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[hasta]"
                           dataType="dbDate"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[hasta]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[hasta]"
                           name="hasta" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[total_factura]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[total_factura]"
                           dataType="r8"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[total_factura]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[total_factura]"
                           name="total_factura" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje]"
                           dataType="r8"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[porcentaje]"
                           name="porcentaje" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          refId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1715,9 +1714,9 @@
               <paths>
                 <path
                   refId="Package\Carga Dimensiones DWH\DimensionDescuentos.Paths[Salida de origen de ADO NET]"
-                  endId="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH.Inputs[Entrada de destino de ADO NET]"
+                  endId="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
                   name="Salida de origen de ADO NET"
-                  startId="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg.Outputs[Salida de origen de ADO NET]" />
+                  startId="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -3164,7 +3163,6 @@
           DTS:refId="Package\Carga Dimensiones DWH\DimensionStock"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
-          DTS:Disabled="True"
           DTS:DTSID="{6A1AC4EF-8E4B-4BFA-B5F2-9AB8D8226857}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
@@ -3207,25 +3205,26 @@
                       synchronousInputId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Inputs[Derived Column Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[FECHA]"
-                          dataType="date"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[Fecha]"
+                          dataType="wstr"
                           errorOrTruncationOperation="Computation"
                           errorRowDisposition="FailComponent"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[FECHA]"
-                          name="FECHA"
+                          length="10"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[Fecha]"
+                          name="Fecha"
                           truncationRowDisposition="FailComponent">
                           <properties>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Expression"
-                              name="Expression">(DT_DATE)(DT_DBTIMESTAMP)[REPLACE]([REPLACE](#{Package\Carga Dimensiones DWH\DimensionStock\Stock Stg.Outputs[Salida de origen de ADO NET].Columns[fecha]},"a.m.","AM"),"p.m.","PM")</property>
+                              name="Expression">[SUBSTRING](#{Package\Carga Dimensiones DWH\DimensionStock\Stock Stg.Outputs[Salida de origen de ADO NET].Columns[fecha]},1,10)</property>
                             <property
                               containsID="true"
                               dataType="System.String"
                               description="Derived Column Friendly Expression"
                               expressionType="Notify"
-                              name="FriendlyExpression">(DT_DATE)(DT_DBTIMESTAMP)REPLACE(REPLACE(fecha,"a.m.","AM"),"p.m.","PM")</property>
+                              name="FriendlyExpression">SUBSTRING(fecha,1,10)</property>
                           </properties>
                         </outputColumn>
                       </outputColumns>
@@ -3257,11 +3256,92 @@
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH"
+                  refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column 1"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Inputs[Derived Column Input].Columns[Fecha]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="Fecha"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[Fecha]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Output].Columns[FECHA]"
+                          dataType="date"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Output].Columns[FECHA]"
+                          name="FECHA"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_DATE)#{Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[Fecha]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_DATE)Fecha</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
                   description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
-                  name="Stock DWH"
+                  name="Destino de ADO NET"
                   usesDispositions="true"
                   version="2">
                   <properties>
@@ -3292,7 +3372,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Connections[IDbConnection]"
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Connections[IDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[(localdb)\server1.DWH]"
                       connectionManagerRefId="Package.ConnectionManagers[(localdb)\server1.DWH]"
                       description="Administrador de conexiones administrado"
@@ -3300,42 +3380,46 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="Entrada de destino de ADO NET">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].Columns[id_producto]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id_producto]"
                           cachedDataType="i4"
                           cachedName="id_producto"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
                           lineageId="Package\Carga Dimensiones DWH\DimensionStock\Stock Stg.Outputs[Salida de origen de ADO NET].Columns[id_producto]" />
                         <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].Columns[FECHA]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[FECHA]"
                           cachedDataType="date"
                           cachedName="FECHA"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha]"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output].Columns[FECHA]" />
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Output].Columns[FECHA]" />
                         <inputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].Columns[cantidad]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[cantidad]"
                           cachedDataType="i4"
                           cachedName="cantidad"
-                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[variacion]"
+                          externalMetadataColumnId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[variacion]"
                           lineageId="Package\Carga Dimensiones DWH\DimensionStock\Stock Stg.Outputs[Salida de origen de ADO NET].Columns[cantidad]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[Stock_Key]"
+                          dataType="i4"
+                          name="Stock_Key" />
+                        <externalMetadataColumn
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_producto]"
                           dataType="i4"
                           name="id_producto" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[fecha]"
                           dataType="dbTimeStamp"
                           name="fecha" />
                         <externalMetadataColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET].ExternalColumns[variacion]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[variacion]"
                           dataType="i4"
                           name="variacion" />
                       </externalMetadataColumns>
@@ -3343,22 +3427,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Outputs[Salida de error de destino de ADO NET]"
+                      refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="Salida de error de destino de ADO NET"
-                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET]">
+                      synchronousInputId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          refId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                          lineageId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -3505,9 +3589,14 @@
               <paths>
                 <path
                   refId="Package\Carga Dimensiones DWH\DimensionStock.Paths[Derived Column Output]"
-                  endId="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH.Inputs[Entrada de destino de ADO NET]"
+                  endId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Inputs[Derived Column Input]"
                   name="Derived Column Output"
                   startId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Carga Dimensiones DWH\DimensionStock.Paths[Derived Column Output1]"
+                  endId="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET.Inputs[Entrada de destino de ADO NET]"
+                  name="Derived Column Output"
+                  startId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Carga Dimensiones DWH\DimensionStock.Paths[Salida de origen de ADO NET]"
                   endId="Package\Carga Dimensiones DWH\DimensionStock\Derived Column.Inputs[Derived Column Input]"
@@ -11224,7 +11313,7 @@ ORDER BY PRODUCT_ID</property>
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{0171144E-00BB-45E7-B34A-CEA298F98B66}"
-              SQLTask:SqlStatementSource="CREATE TABLE Ventas(&#xA;&#x9;[ID_VENTA] [int] NOT NULL,&#xA;&#x9;[ID_FACTURA] [int] NOT NULL,&#xA;&#x9;[FECHA] [date] NULL,&#xA;        [Region] varchar(50),&#xA;&#x9;[Cliente_Key] [int] NULL,&#xA;&#x9;[Empleado_Key] [int] NULL,&#xA;&#x9;[Producto_key] [int] NOT NULL,&#xA;&#x9;[Cantidad] [float] NOT NULL,&#xA;&#x9;[Cantidad_litros] [float] NULL,&#xA;&#x9;[litros_totales] [float] NULL,&#xA;&#x9;[precio_unitario] [float] NULL,&#xA;&#x9;[precio_total] [float] NULL,&#xA;&#x9;[total_factura] [float] NULL,&#xA;&#x9;[porcentaje_descuento] [float] NULL,&#xA;&#x9;[monto_descuento] [float] NULL,&#xA;&#x9;[total_factura_descuento] [float] NULL,&#xA;&#x9;FOREIGN KEY (Producto_Key) REFERENCES Productos(Producto_Key),&#xA;&#x9;FOREIGN KEY (Cliente_Key) REFERENCES Clientes(Cliente_key),&#xA;&#x9;FOREIGN KEY (Empleado_Key) REFERENCES Empleados(Empleado_key),&#xA;&#x9;PRIMARY KEY (ID_VENTA)&#xA;&#x9;)&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              SQLTask:SqlStatementSource="CREATE TABLE Ventas(&#xA;&#x9;[ID_VENTA] [int] NOT NULL,&#xA;&#x9;[ID_FACTURA] [int] NOT NULL,&#xA;&#x9;[FECHA] [date] NULL,&#xA;        &#x9;[Region] varchar(50),&#xA;&#x9;[Cliente_Key] [int] NULL,&#xA;&#x9;[Empleado_Key] [int] NULL,&#xA;&#x9;[Producto_key] [int] NOT NULL,&#xA;&#x9;[Cantidad] [float] NOT NULL,&#xA;&#x9;[Cantidad_litros] [float] NULL,&#xA;&#x9;[litros_totales] [float] NULL,&#xA;&#x9;[precio_unitario] [float] NULL,&#xA;&#x9;[precio_total] [float] NULL,&#xA;&#x9;[total_factura] [float] NULL,&#xA;&#x9;[porcentaje_descuento] [float] NULL,&#xA;&#x9;[monto_descuento] [float] NULL,&#xA;&#x9;[total_factura_descuento] [float] NULL,&#xA;&#x9;FOREIGN KEY (Producto_Key) REFERENCES Productos(Producto_Key),&#xA;&#x9;FOREIGN KEY (Cliente_Key) REFERENCES Clientes(Cliente_key),&#xA;&#x9;FOREIGN KEY (Empleado_Key) REFERENCES Empleados(Empleado_key),&#xA;&#x9;PRIMARY KEY (ID_VENTA)&#xA;&#x9;)&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
@@ -23893,58 +23982,52 @@ WHERE
     design-time-name="Package\Carga Dimensiones DWH\DimensionDescuentos">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154,42"
-          Id="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg"
-          TopLeft="447,114" />
+          Size="179,42"
+          Id="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET"
+          TopLeft="450,109" />
         <NodeLayout
-          Size="166,42"
-          Id="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH"
-          TopLeft="435,257" />
+          Size="183,42"
+          Id="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET"
+          TopLeft="614,234" />
         <EdgeLayout
           Id="Package\Carga Dimensiones DWH\DimensionDescuentos.Paths[Salida de origen de ADO NET]"
-          TopLeft="521,156">
+          TopLeft="539.5,151">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,101"
+              EndConnector="166,83"
               Start="0,0"
-              End="0,93.5">
+              End="166,75.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,93.5" />
+                    End="0,37.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.5"
+                    Point2="0,41.5"
+                    Point3="4,41.5" />
+                  <mssgle:LineSegment
+                    End="162,41.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="162,41.5"
+                    Point2="166,41.5"
+                    Point3="166,45.5" />
+                  <mssgle:LineSegment
+                    End="166,75.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Dimensiones DWH\DimensionDescuentos\Descuentos DWH">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Dimensiones DWH\DimensionDescuentos\DescuentosStg">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Carga Dimensiones DWH\DimensionEmpleados">
     <LayoutInfo>
@@ -24227,15 +24310,11 @@ WHERE
     design-time-name="Package\Carga Dimensiones DWH\DimensionStock">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="136,42"
-          Id="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH"
-          TopLeft="404,349" />
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="158,42"
           Id="Package\Carga Dimensiones DWH\DimensionStock\Derived Column"
-          TopLeft="362,212" />
+          TopLeft="295.636363636364,164.727272727273" />
         <NodeLayout
           Size="126,42"
           Id="Package\Carga Dimensiones DWH\DimensionStock\Stock Stg"
@@ -24246,83 +24325,107 @@ WHERE
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="38,77"
+              EndConnector="-28.3636363636364,29.7272727272727"
               Start="0,0"
-              End="38,69.5">
+              End="-28.3636363636364,22.2272727272727">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.5" />
+                    End="0,10.8636363636364" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.5"
-                    Point2="0,38.5"
-                    Point3="4,38.5" />
+                    Point1="0,10.8636363636364"
+                    Point2="0,14.8636363636364"
+                    Point3="-4,14.8636363636364" />
                   <mssgle:LineSegment
-                    End="34,38.5" />
+                    End="-24.3636363636364,14.8636363636364" />
                   <mssgle:CubicBezierSegment
-                    Point1="34,38.5"
-                    Point2="38,38.5"
-                    Point3="38,42.5" />
+                    Point1="-24.3636363636364,14.8636363636364"
+                    Point2="-28.3636363636364,14.8636363636364"
+                    Point3="-28.3636363636364,18.8636363636364" />
                   <mssgle:LineSegment
-                    End="38,69.5" />
+                    End="-28.3636363636364,22.2272727272727" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Carga Dimensiones DWH\DimensionStock\Derived Column 1"
+          TopLeft="580,229.090909090909" />
         <EdgeLayout
           Id="Package\Carga Dimensiones DWH\DimensionStock.Paths[Derived Column Output]"
-          TopLeft="441,254">
+          TopLeft="453.636363636364,185.727272727273">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="31,95"
+              EndConnector="126.363636363636,64.3636363636364"
               Start="0,0"
-              End="31,87.5">
+              End="118.863636363636,64.3636363636364">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,43.5" />
+                    End="59.1818181818182,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,43.5"
-                    Point2="0,47.5"
-                    Point3="4,47.5" />
+                    Point1="59.1818181818182,0"
+                    Point2="63.1818181818182,0"
+                    Point3="63.1818181818182,4" />
                   <mssgle:LineSegment
-                    End="27,47.5" />
+                    End="63.1818181818182,60.3636363636364" />
                   <mssgle:CubicBezierSegment
-                    Point1="27,47.5"
-                    Point2="31,47.5"
-                    Point3="31,51.5" />
+                    Point1="63.1818181818182,60.3636363636364"
+                    Point2="63.1818181818182,64.3636363636364"
+                    Point3="67.1818181818182,64.3636363636364" />
                   <mssgle:LineSegment
-                    End="31,87.5" />
+                    End="118.863636363636,64.3636363636364" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET"
+          TopLeft="412.727272727273,285.454545454545" />
+        <EdgeLayout
+          Id="Package\Carga Dimensiones DWH\DimensionStock.Paths[Derived Column Output1]"
+          TopLeft="580,255.757575757576">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.7727272727273,29.6969696969697"
+              Start="0,0"
+              End="-75.7727272727273,22.1969696969697">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-71.7727272727273,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.7727272727273,0"
+                    Point2="-75.7727272727273,0"
+                    Point3="-75.7727272727273,4" />
+                  <mssgle:LineSegment
+                    End="-75.7727272727273,22.1969696969697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Dimensiones DWH\DimensionStock\Stock DWH">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga Dimensiones DWH\DimensionStock\Stock Stg">
     <Properties>
@@ -27427,6 +27530,30 @@ WHERE
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fact\Total factura\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Dimensiones DWH\DimensionStock\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Dimensiones DWH\DimensionDescuentos\Origen de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Dimensiones DWH\DimensionDescuentos\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
