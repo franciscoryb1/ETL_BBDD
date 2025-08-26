@@ -53,6 +53,8 @@ El proyecto permite **analizar y cruzar esta información** en un entorno unific
 
 ## ✨ Autores
 
-**Francisco Ryb1**, 
+**Francisco Ryb**,
+
 **Lucía Masciángelo**
+
 _Tecnicatura Universitaria en Inteligencia Artificial - FCEIA - UNR_  
